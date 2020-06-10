@@ -13,50 +13,55 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'PageController@index')->name('index');
 
+Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
 
+    Route::resource('ceo', 'CEOController');
 
-/**
- * Web based interfaces to clear caches
- * Usually used for development purposes.
- * May help when deploying new version of application
- */
+    Route::get('/home', 'HomeController@home')->name('home');
 
-//Clear route cache:
-Route::get('/clear-route', function () {
-    $exitCode = Artisan::call('route:clear');
-    return 'Routes cache cleared';
+    /**
+     * Web based interfaces to clear caches. Usually used for development purposes.
+     * May help when deploying new version of application
+     */
+
+    //Clear route cache:
+    Route::get('/clear-route', function () {
+        $exitCode = Artisan::call('route:clear');
+        return 'Routes cache cleared';
+    });
+
+    //Clear config cache:
+    Route::get('/config-cache', function () {
+        $exitCode = Artisan::call('config:clear');
+        return 'Config cache cleared';
+    });
+
+    // Clear application cache:
+    Route::get('/clear-cache', function () {
+        $exitCode = Artisan::call('cache:clear');
+        return 'Application cache cleared';
+    });
+
+    // Clear view cache:
+    Route::get('/view-clear', function () {
+        $exitCode = Artisan::call('view:clear');
+        return 'View cache cleared';
+    });
+
+    // Clear all caches:
+    Route::get('/clear-all', function () {
+        $exitCode[] = Artisan::call('route:clear');
+        $exitCode[] = Artisan::call('config:clear');
+        $exitCode[] = Artisan::call('view:clear');
+        $exitCode[] = Artisan::call('cache:clear');
+        return 'All caches cleared';
+    });
 });
 
-//Clear config cache:
-Route::get('/config-cache', function () {
-    $exitCode = Artisan::call('config:cache');
-    return 'Config cache cleared';
-});
-// Clear application cache:
-Route::get('/clear-cache', function () {
-    $exitCode = Artisan::call('cache:clear');
-    return 'Application cache cleared';
-});
 
-// Clear view cache:
-Route::get('/view-clear', function () {
-    $exitCode = Artisan::call('view:clear');
-    return 'View cache cleared';
-});
-// Clear all caches:
-Route::get('/clear-all', function () {
-    $exitCode[] = Artisan::call('route:clear');
-    $exitCode[] = Artisan::call('config:cache');
-    $exitCode[] = Artisan::call('view:clear');
-    $exitCode[] = Artisan::call('cache:clear');
-    return 'All caches cleared';
-});

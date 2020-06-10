@@ -1,0 +1,17 @@
+/*! `Tequila` Bootstrap 4 theme */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700);
+$font-family-base:Montserrat;
+@import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
+$headings-font-family:Voltaire;
+
+$enable-grid-classes:true;
+$primary:#2F414A;
+$secondary:#F47B53;
+$success:#420084;
+$danger:#f2460d;
+$info:#7ebcfa;
+$warning:#ff9933;
+$light:#eef0f2;
+$dark:#000633;
+
+// Add SASS theme customizations here..

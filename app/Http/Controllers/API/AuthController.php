@@ -27,7 +27,10 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = ['email' => $request->email, 'password' => $request->password,];
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+            ];
 
         if (auth()->attempt($credentials)) {
             $user = Auth::user();
@@ -47,7 +50,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
         ]);

@@ -11,7 +11,7 @@
                 <div class="card">
                     <h1 class="card-header bg-primary text-light">Welcome</h1>
                     <div class="card-body">
-                        <p>Welcome to {{ config('app.name', 'Laravel') }}.</p>
+                        <p>Welcome to .</p>
                         <p>This is a demonstration application for use by students in deployment
                             testing. Deployment targets must meet the requirements for the
                             application, or be configurable with ease.
@@ -31,8 +31,9 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <h1 class="card-header bg-secondary
-                    text-light"><small>Requirements</small></h1>
+                    <h1 class="card-header bg-secondary text-light">
+                        <small>Requirements</small>
+                    </h1>
                     <div class="card-body">
                         <p>This application is built using or requires:</p>
                         <ul>
@@ -50,23 +51,9 @@
                 </div>
             </div>
 
-            @if (auth())
                 <div class="col-md-4">
-                    <div class="card">
-                        <h1 class="card-header bg-dark text-light"><small>Profile</small></h1>
-                        <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-md-3">Name</dt>
-                            <dd class="col-md-9">{{ auth()->user()->name }}</dd>
-                            <dt class="col-md-3">eMail</dt>
-                            <dd class="col-md-9">{{ auth()->user()->email }}</dd>
-                            <dt class="col-md-3">Joined</dt>
-                            <dd class="col-md-9">{{ auth()->user()->created_at }}</dd>
-                        </dl>
-                        </div>
-                    </div>
+                    {{ $quote }}
                 </div>
-            @endif
 
         </div>
     </div>
