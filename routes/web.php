@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'PageController@index')->name('index');
+Route::get('/about', 'PageController@about')->name('about');
 
 Route::group(['middleware' => ['auth']], function () {
-
-    Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
+    Route::get('/industry/autocomplete/{searchText?}', 'SearchController@autocomplete')
+        ->name('industryAutocomplete');
 
     Route::resource('ceo', 'CEOController');
 

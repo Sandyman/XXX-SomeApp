@@ -23,6 +23,8 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0"
+        "@fortawesome/fontawesome-free": "^5.13.0",
+        "@trevoreyre/autocomplete": "^2.2.0",
+        "@trevoreyre/autocomplete-js": "^2.2.0"
     }
 }

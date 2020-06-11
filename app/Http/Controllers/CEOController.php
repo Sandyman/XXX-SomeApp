@@ -14,17 +14,20 @@ class CEOController extends Controller
 //       $this->middleware('auth');
 //    }
 
-    public function search(Request $request)
+    public function index(Request $request)
     {
+        $numPerPage = 10;
         $term = $request->term;
+        if ($term != '') {
+            $ceos = CEO::where('name', 'LIKE', "%{$term}%")
+                ->orWhere('company_name', 'LIKE', "%{$term}%")
+                ->paginate($numPerPage);
+            $ceos->appends(['term' => $term]);
+        } else {
+            $ceos = CEO::paginate($numPerPage);
+        }
 
-        $ceos = CEO::where('name', 'LIKE', '%{$term}%')
-            ->orWhere('company_name', 'LIKE', '%{$term}%')
-            ->paginate(10)->setPath('');
-        $pagination = $ceos->appends(array(
-            'q' => $term
-        ));
-        return view('ceo.index', compact('ceos', 'term'))->withQuery($term);
+        return view('ceo.index', compact('ceos', 'term'));
     }
 
     /**
@@ -32,7 +35,7 @@ class CEOController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index2()
     {
         $ceos = CEO::paginate(10);
         return view('ceo.index', compact('ceos'));

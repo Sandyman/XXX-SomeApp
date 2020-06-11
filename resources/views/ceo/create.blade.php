@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Year Start</label>
+                        <label for="year">Year Start</label>
                         <select class="form-control" id="year" name="year"
                                 aria-describedby="yearHelp" placeholder="Enter year">
                             @foreach($years as $year)
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="companyName">Company Headquarters</label>
+                        <label for="companyHQ">Company Headquarters</label>
                         <input type="text" class="form-control"
                                id="companyHQ"
                                name="company_headquarters"
@@ -76,12 +76,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="companyName">Industry Area</label>
-                        <input type="text" class="form-control typeahead"
-                               id="companyIndustry"
-                               name="what_company_does"
-                               aria-describedby="companyIndustryHelp"
-                               placeholder="Enter Company Name">
+                        <div id="autocomplete" class="autocomplete">
+                            <label for="companyIndustry">Industry Area</label>
+                            <input type="text" class="form-control autocomplete-input"
+                                   id="companyIndustry"
+                                   name="what_company_does"
+                                   aria-describedby="companyIndustryHelp"
+                                   placeholder="Enter Company Name">
+                            <ul class="autocomplete-result-list"></ul>
+                        </div>
                         <small id="companyIndustryHelp"
                                class="form-text text-muted">
                             What the company does/products/etc.
@@ -91,9 +94,9 @@
                     <div class="form-group">
                         <label for="submit"> </label>
                         <button type="submit" class="btn btn-primary"
-                               id="submit"
-                               name="submit"
-                               aria-describedby="submitHelp">
+                                id="submit"
+                                name="submit"
+                                aria-describedby="submitHelp">
                             Save
                         </button>
                         <small id="submitHelp"
@@ -121,15 +124,31 @@
 
         </div>
     </div>
+@endsection
+
+
+@section('footer')
 
     <script type="text/javascript">
-        var path = "{{ route('autocomplete') }}";
-        $('input.typeahead').typeahead({
-            source:  function (query, process) {
-                return $.get(path, { query: query }, function (data) {
-                    return process(data);
-                });
-            }
-        });
+
+        var path = "{{ url('/industry/autocomplete') }}";
+
+        const autoComp = new Autocomplete('#autocomplete', {
+            search: searchText => {
+                const url = `${path}/${encodeURI(searchText)}`
+                return new Promise(resolve => {
+                    if (searchText.length < 2) {
+                        return resolve([])
+                    }
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            resolve(data)
+                        })
+                })
+            },
+            getResultValue: result => result.name,
+        })
+
     </script>
 @endsection

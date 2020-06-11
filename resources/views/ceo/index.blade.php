@@ -18,24 +18,25 @@
                             </a>
                         </th>
                         <th colspan="4">
-                            <form action="/ceo/search"
-                                  method="POST"
+                            <form action="/ceo"
+                                  method="get"
                                   role="search"
                                   class="form-inline float-right">
-                                {{ csrf_field() }}
                                 <div class="input-group">
                                     <input type="text"
                                            class="form-control"
                                            name="term"
                                            placeholder="Search CEOs"
                                            value="{{ $term ?? ''}}">
-                                    <span class="input-group-btn">
-                                         <button type="submit"
-                                                 class="btn btn-default">
-                                            Search
-                                        </button>
-                                    </span>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary"
+                                                type="submit">Search</button>
+                                        <a class="btn btn-outline-secondary"
+                                           href="{{route('ceo.index')}}"
+                                           type="button">Clear</a>
+                                    </div>
                                 </div>
+
                             </form>
 
                         </th>

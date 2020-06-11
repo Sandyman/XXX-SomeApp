@@ -14,10 +14,12 @@ class SearchController extends Controller
      */
     public function autocomplete(Request $request)
     {
+        $search = $request->searchText;
         $data = Industry::select("name")
-            ->where("name","LIKE","%{$request->query}%")
+            ->where("name","LIKE","%{$search}%")
             ->get();
 
         return response()->json($data);
     }
+
 }

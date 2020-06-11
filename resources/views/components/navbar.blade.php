@@ -16,17 +16,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">GUEST</a>
                     </li>
-                    @endguest
+                @endguest
 
                 @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('ceo.index')}}">CEOs</a>
-                        </li>
-                    @endauth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('ceo.index')}}">CEOs</a>
+                    </li>
+                @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link bg-dark text-light"
+                       href="{{ route('about') }}">
+                        About
+                    </a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

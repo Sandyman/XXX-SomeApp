@@ -29,14 +29,14 @@
                         <label for="name">Email address</label>
                         <input type="text" class="form-control" id="name" name="name"
                                aria-describedby="nameHelp" placeholder="Enter CEO name"
-                                value="{{ old('name') ?? $ceo->name }}">
+                               value="{{ old('name') ?? $ceo->name }}">
                         <small id="nameHelp" class="form-text text-muted">
                             Enter full name of the CEO.
                         </small>
                     </div>
 
                     <div class="form-group">
-                        <label for="companyName">Comapny Name</label>
+                        <label for="companyName">Company Name</label>
                         <input type="text" class="form-control"
                                id="companyName"
                                name="company_name"
@@ -80,25 +80,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="companyName">Industry Area</label>
-                        <input type="text" class="form-control"
-                               id="companyIndustry"
-                               name="what_company_does"
-                               aria-describedby="companyIndustryHelp"
-                               placeholder="Enter Industry Area"
-                               value="{{ old('what_company_does') ?? $ceo->what_company_does }}">
+
+                        <div id="autocomplete" class="autocomplete">
+                            <label for="companyIndustry">Industry Area</label>
+                            <input type="text" class="form-control autocomplete-input"
+                                   id="companyIndustry"
+                                   name="what_company_does"
+                                   aria-describedby="companyIndustryHelp"
+                                   value="{{ old('what_company_does') ?? $ceo->what_company_does }}"
+                                   placeholder="Enter Company Name">
+                            <ul class="autocomplete-result-list"></ul>
+                        </div>
                         <small id="companyIndustryHelp"
                                class="form-text text-muted">
                             What the company does/products/etc.
                         </small>
                     </div>
 
+
                     <div class="form-group">
                         <label for="submit"> </label>
                         <button type="submit" class="btn btn-primary"
-                               id="submit"
-                               name="submit"
-                               aria-describedby="submitHelp">
+                                id="submit"
+                                name="submit"
+                                aria-describedby="submitHelp">
                             Save
                         </button>
                         <small id="submitHelp"
@@ -127,3 +132,31 @@
         </div>
     </div>
 @endsection
+
+
+@section('footer')
+    <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+
+    <script type="text/javascript">
+
+        var path = "{{ url('/industry/autocomplete') }}";
+
+        const autoComp = new Autocomplete('#autocomplete', {
+            search: searchText => {
+                const url = `${path}/${encodeURI(searchText)}`
+                return new Promise(resolve => {
+                    if (searchText.length < 2) {
+                        return resolve([])
+                    }
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            resolve(data)
+                        })
+                })
+            },
+            getResultValue: result => result.name,
+        })
+
+    </script>
+    @endsection
