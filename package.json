@@ -25,6 +25,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
         "@trevoreyre/autocomplete": "^2.2.0",
-        "@trevoreyre/autocomplete-js": "^2.2.0"
+        "@trevoreyre/autocomplete-js": "^2.2.0",
+        "firacode": "^5.1.0"
     }
 }
