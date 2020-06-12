@@ -20,15 +20,70 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
 
-        <x-navbar />
+<header>
+    <!-- Navigation bar component -->
+    <x-navbar/>
+</header>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+<!-- Main content area -->
+<main class="container" role="main">
+    @yield('content')
+</main>
+
+<footer class="footer bg-dark text-light mt-5">
+    <div class="container">
+    <div class="row my-2 mt-md-4 ">
+
+        <div class="col-12 col-md">
+            <h5>Study With Us</h5>
+            <ul class="list-unstyled text-small">
+                <li>
+                    <a class="text-muted" href="https://northmetrotafe.wa.edu.au">
+                        North Metropolitan TAFE
+                    </a>
+                </li>
+                <li>
+                    <a class="text-muted"
+                       href="https://www.northmetrotafe.wa.edu.au/courses/certificate-iv-programming-2">
+                        Certificate IV in Programming
+                    </a>
+                </li>
+                <li>
+                    <a class="text-muted"
+                       href="https://www.northmetrotafe.wa.edu.au/courses/diploma-software-development-2">
+                        Diploma of Software Development
+                    </a>
+                </li>
+                <li>
+                    <a class="text-muted"
+                       href="https://www.northmetrotafe.wa.edu.au/courses/diploma-website-development">
+                        Diploma of Website Development
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-md small">
+            <p class="text-muted">
+                <span class="text-light">{{ config('app.name', 'Laravel') }}</span>
+                is a slowly evolving demonstration application for students studying Software
+                and Web Development at
+                <a href="https://northmetrotafe.wa.edu.au">
+                    North Metropolitan TAFE
+                </a>
+            </p>
+            <ul class="list-unstyled text-small">
+                <li>&copy; 2020, Adrian Gould</li>
+                <li><a href="https://github.com/AdyGCode/XXX-SomeApp">
+                        <i class="fab fa-git-alt"></i> XXX-SomeApp Code (this app)
+                    </a></li>
+            </ul>
+        </div>
     </div>
-
+    </div>
+</footer>
+<!-- any required post-footer specific code -->
 @yield('footer')
 </body>
 </html>

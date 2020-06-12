@@ -1,0 +1,9 @@
+@import '~firacode';
+
+.text-code {
+    font-family: 'Fira Code', monospace;
+}
+
+@supports (font-variation-settings: normal) {
+    .text-code { font-family: 'Fira Code VF', monospace; }
+}

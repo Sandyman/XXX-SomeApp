@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Inspiring;
+use App\Http\Resources\Inspirational;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,7 +14,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $quote = Inspiring::quote();
+        $quote = new Inspirational();
         return view('pages.index', compact('quote'));
     }
 
@@ -25,7 +25,7 @@ class PageController extends Controller
      */
     public function about()
     {
-        $quote = Inspiring::quote();
+        $quote = new Inspirational();
         return view('pages.about', compact('quote'));
     }
 

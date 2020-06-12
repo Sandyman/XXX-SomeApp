@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Raleway", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,13 +66,13 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #e8eaec;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -510,7 +510,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #e8eaec;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4275,15 +4275,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #e8eaec, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #e8eaec, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #e8eaec, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4489,8 +4489,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #e8eaec;
+  border-color: #dee2e6 #dee2e6 #e8eaec;
 }
 
 .nav-tabs .dropdown-menu {
@@ -6400,7 +6400,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6525,7 +6525,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -17128,5 +17128,79 @@ readers do not read off random characters that represent icons */
 
 .autocomplete-result[aria-selected=true] {
   background-color: rgba(0, 0, 0, 0.06);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 200px;
+  margin-top: 80px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: 180px;
+  background: #343a40;
+  display: block;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-Light.woff2?5dc8c3e1dcbc01939d792640f27386a3) format("woff2"), url(/fonts/vendor/firacode/distr/woff/FiraCode-Light.woff?bb590d6ad5677dd102fe134769a71c40) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-Regular.woff2?b3fd8265552b18b11d14a2ebc4ba9919) format("woff2"), url(/fonts/vendor/firacode/distr/woff/FiraCode-Regular.woff?b20716e862a6a6bd1e965d0a0d8aeee4) format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-Medium.woff2?6121308b9e9668ba6a8079a0e64ad8a9) format("woff2"), url(/fonts/vendor/firacode/distr/woff/FiraCode-Medium.woff?43a4bad91cc3d3571dcc5a99c11cdef2) format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-SemiBold.woff2?9f42784f18d3925b2d8ba83312e2f377) format("woff2"), url(/fonts/vendor/firacode/distr/woff/FiraCode-SemiBold.woff?fe0abcbdd17df13f4f2b241dc6bf17c4) format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-Bold.woff2?46ccf0b168963d0acf78452ff969108d) format("woff2"), url(/fonts/vendor/firacode/distr/woff/FiraCode-Bold.woff?f5caa34778d6e5c6972aa075f228f2a3) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code VF";
+  src: url(/fonts/vendor/firacode/distr/woff2/FiraCode-VF.woff2?cb282421f22e290ee6867f47c17ee9f3) format("woff2-variations"), url(/fonts/vendor/firacode/distr/woff/FiraCode-VF.woff?0f22f31f9303b907b27a98137c13a70a) format("woff-variations");
+  /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+.text-code {
+  font-family: "Fira Code", monospace;
+}
+
+@supports (font-variation-settings: normal) {
+  .text-code {
+    font-family: "Fira Code VF", monospace;
+  }
 }
 
