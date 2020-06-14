@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-md shadow-sm navbar-dark fixed-top bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset('images/avatars/ceo-1.png')}}"
+                 height="32" class="mr-2"/>
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,6 +23,9 @@
                 @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('ceo.index')}}">CEOs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.index')}}">Users</a>
                     </li>
                 @endauth
             </ul>

@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('industryAutocomplete');
 
     Route::resource('ceo', 'CEOController');
+    Route::resource('user', 'UserController');
 
     Route::get('/home', 'HomeController@home')->name('home');
 
