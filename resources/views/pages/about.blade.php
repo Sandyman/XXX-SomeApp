@@ -37,9 +37,10 @@
                         <p>Other accounts are also available. There are two accounts for
                             staff added, plus a place for the student to add their own
                             account details for development and testing.</p>
-                        <p>Adrian uses "<a href="https://usehelo.com/">HELO</a>" (approx
-                            A$24 personal, A$48 professional) as a mail trap desktop application
-                            to allow testing of sending eMail from within this demo app.</p>
+                        <p>Adrian uses "<a href="https://usehelo.com/" target="_blank">HELO</a>"
+                            (approx. A$24 personal, A$48 professional) as a mail trap desktop
+                            application to allow testing of sending eMail from within this demo
+                            app.</p>
                     </div>
                 </div>
             </div>
