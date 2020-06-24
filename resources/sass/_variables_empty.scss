@@ -1,17 +1,17 @@
-/*! `Empty` Bootstrap 4 theme */
-@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,700);
+/* `Signal` Bootstrap 4 theme */
+@import
+url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,700);
 $font-family-base:Nunito;
-@import url(https://fonts.googleapis.com/css?family=Kreon:200,300,400,700);
-$headings-font-family:Kreon;
+@import
+url(https://fonts.googleapis.com/css?family=Comfortaa:200,300,400,700);
 
+$headings-font-family:Comfortaa;
 $enable-grid-classes:true;
-$primary:#d81c24;
-$secondary:#4d5860;
-$success:#11d44c;
-$danger:#d80e0e;
-$info:#6fc8fb;
-$warning:#c29800;
-$light:#FAFAFA;
-$dark:#262936;
-
-// Add SASS theme customizations here..
+$primary:#FF304F;
+$secondary:#CACACA;
+$success:#015668;
+$danger:#06648C;
+$info:#0F81C7;
+$warning:#0DE2EA;
+$light:#ececec;
+$dark:#222222;
