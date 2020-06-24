@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS l7_api_db;
-DROP USER 'l7_api_user'@'localhost';
+DROP USER IF EXISTS 'l7_api_user'@'localhost';
 FLUSH PRIVILEGES;
 SET storage_engine = 'InnoDB';
 SET character_set_server = 'utf8mb4';
