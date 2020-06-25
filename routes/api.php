@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register', 'Api\AuthController@register');
-Route::post('/login', 'Api\AuthController@login');
+Route::post('/register', 'API\AuthController@register');
+Route::post('/login', 'API\AuthController@login');
 
-Route::apiResource('/ceo', 'Api\CEOController')->middleware('auth:api');
+Route::apiResource('/ceo', 'API\CEOController')->middleware('auth:api');
 
 Route::middleware('auth:api')->group(function(){
-    Route::post('details', 'Api\AuthController@get_user_details_info');
+    Route::post('details', 'API\AuthController@get_user_details_info');
 });
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
