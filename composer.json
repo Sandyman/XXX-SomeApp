@@ -60,12 +60,13 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
-            "php artisan passport:install"
+            "@php artisan passport:install"
         ],
         "post-install-cmd": [
             "php artisan clear-compiled",
+            "chmod -R 775 public/",
             "chmod -R 775 storage",
-            "chmod -R 775 public/"
+            "php artisan passport:install"
         ]
     }
 }
